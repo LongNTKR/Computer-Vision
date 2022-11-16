@@ -69,7 +69,7 @@ class CrawlDataVNEXPRESS(webdriver.Chrome):
     
     def get_data(self):
         elements = self.find_element(By.CSS_SELECTOR, 'article').find_elements(By.CSS_SELECTOR, 'p')
-        with open(r'd:\code\python\selenium\crawl_data_wiki\crawl_data_wiki\data.txt', 'a', encoding='utf-8') as file:
+        with open(r'data.txt', 'a', encoding='utf-8') as file:
             for element in elements:
                 if len(element.text) > 0:
                     file.writelines(element.text)
@@ -77,19 +77,19 @@ class CrawlDataVNEXPRESS(webdriver.Chrome):
 
 driver = CrawlDataVNEXPRESS()
 
-#driver.search()
-#driver.maximize_window()
-#for class_name in driver.get_class_names():
-#    driver.click_all_button((By.CLASS_NAME, 'all-menu.has_transition'))
-#    driver.search(driver.find_element(By.CLASS_NAME, class_name).find_element(By.CSS_SELECTOR, 'a').get_attribute('href'))
-#    driver.scroll_to_end()
-#    with open(r'd:\code\python\selenium\crawl_data_wiki\crawl_data_wiki\href.txt', 'a', encoding='utf-8') as file:
-#        file.write(class_name + '\n')
-#        for href in driver.get_articles():
-#            file.write(href + '\n')
-#        file.close()
+driver.search()
+driver.maximize_window()
+for class_name in driver.get_class_names():
+    driver.click_all_button((By.CLASS_NAME, 'all-menu.has_transition'))
+    driver.search(driver.find_element(By.CLASS_NAME, class_name).find_element(By.CSS_SELECTOR, 'a').get_attribute('href'))
+    driver.scroll_to_end()
+    with open(r'href.txt', 'a', encoding='utf-8') as file:
+        file.write(class_name + '\n')
+        for href in driver.get_articles():
+            file.write(href + '\n')
+        file.close()
 
-with open(r'd:\code\python\selenium\crawl_data_wiki\crawl_data_wiki\href.txt', 'r+', encoding='utf-8') as file:
+with open(r'href.txt', 'r+', encoding='utf-8') as file:
     data = file.readlines()
 
 for url in data:
