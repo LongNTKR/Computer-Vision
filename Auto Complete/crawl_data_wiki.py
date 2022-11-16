@@ -8,8 +8,6 @@ import requests
 import time
 class CrawlDataWiki(webdriver.Chrome):
     def __init__(self):
-        self.string = """Hãy giúp đỡ chúng tôi cập nhật thông tin Đại dịch COVID-19 để mang đến người xem nguồn thông tin chính xác, khách quan và không thiên vị.
-Nhớ giữ gìn sức khỏe, thực hiện tốt các biện pháp phòng dịch vì sức khỏe cho bản thân, gia đình và cộng đồng."""
         os.environ['PATH'] += r"C:/SeleniumDrivers"
         super(CrawlDataWiki, self).__init__()
 
@@ -50,7 +48,7 @@ Nhớ giữ gìn sức khỏe, thực hiện tốt các biện pháp phòng dị
             except:
                 continue
 
-        with open(r'd:\code\python\selenium\crawl_data_wiki\crawl_data_wiki\data.txt', 'a', encoding='utf-8') as file:
+        with open(r'data.txt', 'a', encoding='utf-8') as file:
             for element in elements:
                 if len(element.text) > 0 and element.text != self.string:
                     file.writelines(element.text)
