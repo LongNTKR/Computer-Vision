@@ -1,1 +1,1 @@
-Deep Learning self-written code
+Deep Learning code use mathmathletics inside
