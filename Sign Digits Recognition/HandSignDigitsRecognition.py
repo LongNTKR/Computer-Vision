@@ -2,7 +2,7 @@ import HandTracking as ht
 import cv2
 
 def main():
-    detector = ht.HandDectector()
+    detector = ht.HandDectector(path='D:\Code\Python\OpenCV\HandTracking\parameters.h5')
     
     cap = cv2.VideoCapture(0)
     while True:
@@ -17,7 +17,6 @@ def main():
         
         cv2.imshow('Image', img)
         cv2.waitKey(1)
-
 
 if __name__ == '__main__':
     main()
